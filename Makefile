@@ -1,17 +1,11 @@
-HEADERS = kbfunc.h
+default: kreis
 
-all: kb kbfunc
+kreis.o: kreis.c
+	gcc -c kreis.c -o kreis.o
 
-kb.o: kb.c
-	gcc -c kb.c -o kb.o
+kreis: kreis.o
+	gcc kreis.o -o kreis
 
-kbfunc.o: kbfunc.c
-	gcc -c kbfunc.c -o kbfunc.o
-
-kb: kb.o kbfunc.o
-	gcc kb.o kbfunc.o -o kb
-
-clean: 
-	-rm -f kb.o	
-	-rm -f kbfunc.o
-	-rm -f kb
+clean:
+	-rm -f kreis.o
+	-rm -f kreis
